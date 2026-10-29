@@ -9,7 +9,7 @@
 //!    folder can't be written (read-only medium, Program Files), a warning is logged and the
 //!    platform folder is used.
 //! 3. The platform convention: macOS `~/Library/Application Support/VisualabEffects`, Windows
-//!    `%APPDATA%\EffectCraft`, Linux `$XDG_CONFIG_HOME/effectcraft` or `~/.config/effectcraft`.
+//!    `%APPDATA%\EffectCraft`, Linux `$XDG_CONFIG_HOME/effectcraft` or `~/.config/visualab-effects`.
 
 use std::ffi::OsString;
 use std::path::{Path, PathBuf};
@@ -142,7 +142,7 @@ mod tests {
         } else if cfg!(target_os = "windows") {
             assert_eq!(dir, root.join("appdata").join("VisualabEffects"));
         } else {
-            assert_eq!(dir, root.join("home/.config/effectcraft"));
+            assert_eq!(dir, root.join("home/.config/visualab-effects"));
         }
         assert!(!exe.join(PORTABLE_DATA_DIR).exists(), "no portable folder without a marker");
         let _ = std::fs::remove_dir_all(&root);

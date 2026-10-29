@@ -22,10 +22,10 @@
          "file" search with no FileSearch inside yields that file's folder. A folder passed on the
          command line (INSTALLFOLDER=...) wins. -->
     <Property Id="PREVIOUSINSTALLFOLDER" Secure="yes">
-      <RegistrySearch Id="PreviousInstallFolder" Root="HKLM" Type="directory" Key="Software\Microsoft\Windows\CurrentVersion\App Paths\effectcraft.exe" Name="Path" />
+      <RegistrySearch Id="PreviousInstallFolder" Root="HKLM" Type="directory" Key="Software\Microsoft\Windows\CurrentVersion\App Paths\visualab-effect.exe" Name="Path" />
     </Property>
     <Property Id="PREVIOUSEXEFOLDER" Secure="yes">
-      <RegistrySearch Id="PreviousExeFolder" Root="HKLM" Type="file" Key="Software\Microsoft\Windows\CurrentVersion\App Paths\effectcraft.exe" />
+      <RegistrySearch Id="PreviousExeFolder" Root="HKLM" Type="file" Key="Software\Microsoft\Windows\CurrentVersion\App Paths\visualab-effect.exe" />
     </Property>
     <!-- The desktop shortcut: on by default for a fresh install (a box in the wizard, or
          DESKTOPSHORTCUT=0 silently); an upgrade keeps what the installed copy chose, and adds none
@@ -60,8 +60,8 @@
           <Shortcut Id="StartMenuShortcut" Directory="ProgramMenuFolder" Name="Visualab Effects" Description="Visualab Effects motion graphics and visual effects" WorkingDirectory="INSTALLFOLDER" Advertise="yes" Icon="EffectcraftIcon.ico" IconIndex="0" />
         </File>
 
-        <RegistryValue Root="HKMU" Key="Software\Microsoft\Windows\CurrentVersion\App Paths\effectcraft.exe" Value="[#EffectcraftExe]" Type="string" />
-        <RegistryValue Root="HKMU" Key="Software\Microsoft\Windows\CurrentVersion\App Paths\effectcraft.exe" Name="Path" Value="[INSTALLFOLDER]" Type="string" />
+        <RegistryValue Root="HKMU" Key="Software\Microsoft\Windows\CurrentVersion\App Paths\visualab-effect.exe" Value="[#EffectcraftExe]" Type="string" />
+        <RegistryValue Root="HKMU" Key="Software\Microsoft\Windows\CurrentVersion\App Paths\visualab-effect.exe" Name="Path" Value="[INSTALLFOLDER]" Type="string" />
         <!-- The desktop shortcut choice, for the next upgrade (empty: none). -->
         <RegistryValue Root="HKMU" Key="Software\Visualab Effects" Name="DesktopShortcut" Value="[DESKTOPSHORTCUT]" Type="string" />
       <RegistryValue Root="HKMU" Key="Software\Visualab Effects" Name="InstallDir" Value="[INSTALLFOLDER]" Type="string" />

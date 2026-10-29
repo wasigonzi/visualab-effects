@@ -25,7 +25,7 @@ param([string] $Work = (Join-Path ([IO.Path]::GetTempPath()) 'effectcraft-msi-te
 $ErrorActionPreference = 'Stop'
 trap { Write-Output "FAILED: $_"; exit 1 }
 $Root = (Resolve-Path (Join-Path $PSScriptRoot '..\..')).Path
-$AppPaths = 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\effectcraft.exe'
+$AppPaths = 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\visualab-effect.exe'
 # A per-machine install's desktop is the Public one.
 $DesktopLink = Join-Path ([Environment]::GetFolderPath('CommonDesktopDirectory')) 'Visualab Effects.lnk'
 
