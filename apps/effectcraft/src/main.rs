@@ -35,7 +35,7 @@ use serde_json::json;
 /// `packaging/icons.sh`). macOS gets the padded variant so it sits on Apple's icon grid in the Dock.
 /// The 256 px app icon (Windows, Linux; the AppImage's desktop integration installs it too).
 #[cfg(not(target_os = "macos"))]
-const ICON_PNG: &[u8] = include_bytes!("../../../assets/app-icon/hicolor/256x256/apps/ai.storyteller.effectcraft.png");
+const ICON_PNG: &[u8] = include_bytes!("../../../assets/app-icon/hicolor/256x256/apps/com.visualabstudios.effects.png");
 
 fn app_icon() -> egui::IconData {
     #[cfg(target_os = "macos")]
@@ -155,7 +155,10 @@ fn install_file_dialogs(app: &mut EffectcraftApp) -> Option<std::sync::mpsc::Rec
 fn main() -> eframe::Result {
     // Windows: the update helper is a copy of this program started with `--finish-update`.
     #[cfg(windows)]
-    if let Some(result) = craft_update::self_update::finish(&craft_update::suite::EFFECTCRAFT, &std::env::args_os().skip(1).collect::<Vec<_>>()) {
+    if let Some(result) = craft_update::self_update::finish(
+        &craft_update::App::new("visualab-effect", "Visualab Effects", "Visualab Studios creative tools", "wasigonzi/visualab-effects"),
+        &std::env::args_os().skip(1).collect::<Vec<_>>(),
+    ) {
         std::process::exit(i32::from(result.is_err()));
     }
     // First, so the panic hook and every start-up warning are recorded. Records go to stderr
@@ -203,7 +206,7 @@ fn main() -> eframe::Result {
             // Started for an agent (`--control`): open without taking the user's keyboard focus.
             .with_active(control_port.is_none())
             .with_icon(app_icon())
-            // Wayland matches the window to `ai.storyteller.effectcraft.desktop` by this ID.
+            // Wayland matches the window to `com.visualabstudios.effects.desktop` by this ID.
             .with_app_id(appimage::APP_ID),
         event_loop_builder: agent_event_loop(control_port.is_some()),
         wgpu_options: wgpu_options(launch.backends),

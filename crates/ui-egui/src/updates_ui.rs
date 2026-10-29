@@ -21,7 +21,10 @@ impl Default for Runtime {
     fn default() -> Self {
         Self {
             #[cfg(not(target_arch = "wasm32"))]
-            updater: Updater::new(&craft_update::suite::EFFECTCRAFT, env!("CARGO_PKG_VERSION")),
+            updater: Updater::new(
+                &craft_update::App::new("visualab-effect", "Visualab Effects", "Visualab Studios creative tools", "wasigonzi/visualab-effects"),
+                env!("CARGO_PKG_VERSION"),
+            ),
             #[cfg(not(target_arch = "wasm32"))]
             startup_check: false,
             #[cfg(not(target_arch = "wasm32"))]

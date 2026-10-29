@@ -132,15 +132,15 @@ Original provisional V marks generated for this fork. These do not reproduce the
 | `assets/app-icon/effectcraft.ico` | Visualab Studios | Original procedural artwork | MIT OR Apache-2.0 |
 | `assets/app-icon/effectcraft-macos-512.png` | Visualab Studios | Original procedural artwork | MIT OR Apache-2.0 |
 | `assets/app-icon/effectcraft.icns` | Visualab Studios | Original procedural artwork | MIT OR Apache-2.0 |
-| `assets/app-icon/hicolor/16x16/apps/ai.storyteller.effectcraft.png` | Visualab Studios | Original procedural artwork | MIT OR Apache-2.0 |
-| `assets/app-icon/hicolor/64x64/apps/ai.storyteller.effectcraft.png` | Visualab Studios | Original procedural artwork | MIT OR Apache-2.0 |
-| `assets/app-icon/hicolor/scalable/apps/ai.storyteller.effectcraft.svg` | Visualab Studios | Original procedural artwork | MIT OR Apache-2.0 |
-| `assets/app-icon/hicolor/512x512/apps/ai.storyteller.effectcraft.png` | Visualab Studios | Original procedural artwork | MIT OR Apache-2.0 |
-| `assets/app-icon/hicolor/128x128/apps/ai.storyteller.effectcraft.png` | Visualab Studios | Original procedural artwork | MIT OR Apache-2.0 |
-| `assets/app-icon/hicolor/24x24/apps/ai.storyteller.effectcraft.png` | Visualab Studios | Original procedural artwork | MIT OR Apache-2.0 |
-| `assets/app-icon/hicolor/256x256/apps/ai.storyteller.effectcraft.png` | Visualab Studios | Original procedural artwork | MIT OR Apache-2.0 |
-| `assets/app-icon/hicolor/48x48/apps/ai.storyteller.effectcraft.png` | Visualab Studios | Original procedural artwork | MIT OR Apache-2.0 |
-| `assets/app-icon/hicolor/32x32/apps/ai.storyteller.effectcraft.png` | Visualab Studios | Original procedural artwork | MIT OR Apache-2.0 |
+| `assets/app-icon/hicolor/16x16/apps/com.visualabstudios.effects.png` | Visualab Studios | Original procedural artwork | MIT OR Apache-2.0 |
+| `assets/app-icon/hicolor/64x64/apps/com.visualabstudios.effects.png` | Visualab Studios | Original procedural artwork | MIT OR Apache-2.0 |
+| `assets/app-icon/hicolor/scalable/apps/com.visualabstudios.effects.svg` | Visualab Studios | Original procedural artwork | MIT OR Apache-2.0 |
+| `assets/app-icon/hicolor/512x512/apps/com.visualabstudios.effects.png` | Visualab Studios | Original procedural artwork | MIT OR Apache-2.0 |
+| `assets/app-icon/hicolor/128x128/apps/com.visualabstudios.effects.png` | Visualab Studios | Original procedural artwork | MIT OR Apache-2.0 |
+| `assets/app-icon/hicolor/24x24/apps/com.visualabstudios.effects.png` | Visualab Studios | Original procedural artwork | MIT OR Apache-2.0 |
+| `assets/app-icon/hicolor/256x256/apps/com.visualabstudios.effects.png` | Visualab Studios | Original procedural artwork | MIT OR Apache-2.0 |
+| `assets/app-icon/hicolor/48x48/apps/com.visualabstudios.effects.png` | Visualab Studios | Original procedural artwork | MIT OR Apache-2.0 |
+| `assets/app-icon/hicolor/32x32/apps/com.visualabstudios.effects.png` | Visualab Studios | Original procedural artwork | MIT OR Apache-2.0 |
 | `assets/app-icon/visualab-mark.png` | Visualab Studios | Original procedural artwork | MIT OR Apache-2.0 |
 | `apps/effectcraft-web/web/favicon.svg` | EffectCraft contributors | Original work: web app icon, a copy of `assets/app-icon/effectcraft-small.svg` (the unicorn app icon) | MIT OR Apache-2.0 (`assets/app-icon/LICENSE.txt`) |
 | `packaging/macos/dmg/background.svg` | @XusBadia | Original work: macOS DMG Finder window background, derived from the EffectCraft app icon (`assets/app-icon/effectcraft.svg`); rendered to a TIFF by `packaging/macos/package.sh` at package time | MIT OR Apache-2.0 (`LICENSE-MIT`, `LICENSE-APACHE`) |

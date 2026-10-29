@@ -111,9 +111,9 @@ version. `package.sh` writes the `.zsync` when `zsyncmake` (the `zsync` package)
 workflow checks both.
 
 The `.flatpak` bundles repackage the Linux job's tarball with
-`packaging/linux/flatpak-bundle.sh` and `packaging/linux/flatpak/ai.storyteller.effectcraft.bundle.yml`
+`packaging/linux/flatpak-bundle.sh` and `packaging/linux/flatpak/com.visualabstudios.effects.bundle.yml`
 (no Rust build inside flatpak-builder), then install the bundle and run `effectcraft-cli --version`
-in the sandbox. `ai.storyteller.effectcraft.yml` is the from-source manifest for Flathub; packaging
+in the sandbox. `com.visualabstudios.effects.yml` is the from-source manifest for Flathub; packaging
 lint keeps the runtime and sandbox permissions of the two identical.
 
 ### FreeBSD
