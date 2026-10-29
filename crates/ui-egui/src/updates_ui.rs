@@ -21,7 +21,10 @@ impl Default for Runtime {
     fn default() -> Self {
         Self {
             #[cfg(not(target_arch = "wasm32"))]
-            updater: Updater::new(&craft_update::suite::EFFECTCRAFT, env!("CARGO_PKG_VERSION")),
+            updater: Updater::new(
+                &craft_update::App::new("visualab-effect", "Visualab Effects", "Visualab Studios creative tools", "wasigonzi/visualab-effects"),
+                env!("CARGO_PKG_VERSION"),
+            ),
             #[cfg(not(target_arch = "wasm32"))]
             startup_check: false,
             #[cfg(not(target_arch = "wasm32"))]
@@ -84,7 +87,7 @@ pub(crate) fn show(app: &mut EffectcraftApp, ctx: &egui::Context) {
             Status::Checking => (true, None),
             Status::UpToDate => (
                 true,
-                Some(crate::i18n::tr("EffectCraft {version} is currently the newest version available.").replace("{version}", env!("CARGO_PKG_VERSION"))),
+                Some(crate::i18n::tr("Visualab Effects {version} is currently the newest version available.").replace("{version}", env!("CARGO_PKG_VERSION"))),
             ),
             Status::Failed(e) => (true, Some(crate::i18n::tr("Could not check for updates:\n{error}").replace("{error}", e))),
         };

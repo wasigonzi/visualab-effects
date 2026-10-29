@@ -1,13 +1,13 @@
 [Desktop Entry]
 Type=Application
-Name=EffectCraft
+Name=Visualab Effects
 GenericName=Motion Graphics Editor
 Comment=Motion graphics and visual effects compositor
 Exec=effectcraft %F
 TryExec=effectcraft
-Icon=ai.storyteller.effectcraft
+Icon=com.visualabstudios.effects
 Terminal=false
 StartupNotify=true
-StartupWMClass=ai.storyteller.effectcraft
+StartupWMClass=com.visualabstudios.effects
 Categories=AudioVideo;Video;Graphics;2DGraphics;
 Keywords=motion;graphics;animation;compositor;effects;keyframe;vfx;

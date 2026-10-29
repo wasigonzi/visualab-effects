@@ -23,7 +23,7 @@ fn config_dir(name: &str) -> PathBuf {
 fn rejects(name: &str, args: &[&str], env: &[(&str, &str)], message: &str) {
     let config = config_dir(name);
     let mut cmd = Command::new(binary());
-    cmd.args(args).env_remove("EFFECTCRAFT_CONTROL_PORT").env_remove("RUST_LOG").env("EFFECTCRAFT_CONFIG_DIR", &config);
+    cmd.args(args).env_remove("EFFECTCRAFT_CONTROL_PORT").env_remove("RUST_LOG").env("VISUALAB_EFFECT_CONFIG_DIR", &config);
     for (k, v) in env {
         cmd.env(k, v);
     }

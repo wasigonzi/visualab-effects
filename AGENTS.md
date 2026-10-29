@@ -1,3 +1,7 @@
+# Visualab customization
+
+This is an independently branded Visualab Studios fork. User-facing product names and original replacement artwork use Visualab Photo, Visualab Vector or Visualab Effects as appropriate. This explicit fork scope overrides upstream instructions requiring the original product name or first-party ArtCraft artwork. Keep upstream copyright, code licences, document formats and crate names.
+
 # EffectCraft — rules for agents and contributors
 
 These rules apply to every human and AI contributor. `CLAUDE.md` holds the working instructions; this

@@ -39,9 +39,9 @@ fn brand_and_home(app: &mut EffectcraftApp, ui: &mut egui::Ui, p: &egui::Painter
     let brand = Rect::from_min_size(pos2(x, cy - 12.0), vec2(24.0, 24.0));
     paint_logo(p, brand);
     let bresp = ui.interact(brand, egui::Id::unique("brand"), Sense::click());
-    app.auto.add_response("header.about", &bresp, "About EffectCraft");
+    app.auto.add_response("header.about", &bresp, "About Visualab Effects");
     widgets::focus_outline(ui, &bresp, &t);
-    if bresp.on_hover_text(tr("About EffectCraft")).clicked() {
+    if bresp.on_hover_text(tr("About Visualab Effects")).clicked() {
         app.dialog = Some(Dialog::About);
     }
     x += 32.0;
@@ -257,9 +257,10 @@ fn community_buttons(app: &mut EffectcraftApp, ui: &mut egui::Ui, p: &egui::Pain
         let _ = app.session.execute("help.discord", json!({}));
     }
     rx = discord.min.x - 6.0;
-    for (id, icon, tip, cmd) in
-        [("hdr-github", Icon::Code, "EffectCraft on GitHub", "help.github"), ("hdr-web", Icon::Globe, "EffectCraft on getartcraft.com", "help.appPage")]
-    {
+    for (id, icon, tip, cmd) in [
+        ("hdr-github", Icon::Code, "Visualab Effects on GitHub", "help.github"),
+        ("hdr-web", Icon::Globe, "Visualab Effects on getartcraft.com", "help.appPage"),
+    ] {
         let r = Rect::from_min_max(pos2(rx - 26.0, cy - 13.0), pos2(rx, cy + 13.0));
         if widgets::icon_button(ui, r, icon, false, &t, egui::Id::unique(id)).on_hover_text(tip).clicked() {
             let _ = app.session.execute(cmd, json!({}));
@@ -763,7 +764,7 @@ fn ws_menu(app: &mut EffectcraftApp, ui: &mut egui::Ui) {
 
 /// The ArtCraft mark as supplied in `docs/brand` (the README's and getartcraft.com's logo; used
 /// unmodified, see `docs/brand/LICENSE-brand.txt`).
-static ARTCRAFT_MARK: &[u8] = include_bytes!("../../../docs/brand/artcraft-mark.png");
+static ARTCRAFT_MARK: &[u8] = include_bytes!("../../../assets/app-icon/visualab-mark.png");
 
 /// The ArtCraft mark in `r` (decoded once into a mipmapped texture, so it stays crisp from the
 /// 24 px Tools bar to the About dialog). Nothing is drawn if it can't be decoded.

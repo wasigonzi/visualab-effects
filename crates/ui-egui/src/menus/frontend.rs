@@ -14,7 +14,7 @@ fn clipboard_text(s: &effectcraft_engine::Session) -> String {
     if let Some(text) = &st.keyframe_text {
         return text.clone();
     }
-    let n = |n: usize, one: &str, many: &str| format!("EffectCraft: {n} {}", if n == 1 { one } else { many });
+    let n = |n: usize, one: &str, many: &str| format!("Visualab Effects: {n} {}", if n == 1 { one } else { many });
     if st.clip_is_keys && !st.key_clipboard.is_empty() {
         n(st.key_clipboard.iter().map(|c| c.keys.len()).sum(), "keyframe", "keyframes")
     } else if !st.effect_clipboard.is_empty() {
@@ -22,7 +22,7 @@ fn clipboard_text(s: &effectcraft_engine::Session) -> String {
     } else if !st.contents_clipboard.is_empty() {
         n(st.contents_clipboard.len(), "shape item", "shape items")
     } else if st.link_clipboard.is_some() {
-        "EffectCraft: property links".into()
+        "Visualab Effects: property links".into()
     } else {
         n(st.clipboard.len(), "layer", "layers")
     }

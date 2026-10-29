@@ -61,7 +61,7 @@ let
   isLinux = stdenv.hostPlatform.isLinux;
 
   # AppStream id: also the desktop file name, and the icon name in share/icons/hicolor.
-  appId = "ai.storyteller.effectcraft";
+  appId = "com.visualabstudios.effects";
 
   # Libraries the binaries open at run time with dlopen(): nothing links them, so no RPATH points at
   # them. winit loads libwayland-client, libxkbcommon(-x11) and the X11 libraries; wgpu loads the

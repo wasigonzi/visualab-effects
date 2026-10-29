@@ -557,7 +557,7 @@ On Linux and the BSDs the system font folders are `/usr/share/fonts`, `/usr/loca
 every `<dir>` the fontconfig configuration names (`/etc/fonts/fonts.conf` with its includes,
 `~/.config/fontconfig/fonts.conf`) and, in the Flatpak, the host's fonts under `/run/host`. The
 Flatpak can't see other folders; grant one with
-`flatpak override --user --filesystem=<dir>:ro --env=EFFECTCRAFT_FONT_DIRS=<dir> ai.storyteller.effectcraft`.
+`flatpak override --user --filesystem=<dir>:ro --env=EFFECTCRAFT_FONT_DIRS=<dir> com.visualabstudios.effects`.
 
 In expressions, `text.sourceText.style` / `getStyleAt(i, t)` read styles and the setters
 (`setFontSize(v, start?, count?)`, `setFillColor`, `setText`, `setJustification`…) return a

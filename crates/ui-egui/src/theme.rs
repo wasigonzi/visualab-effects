@@ -135,14 +135,14 @@ impl Tokens {
     pub fn for_kind(kind: ThemeKind) -> Self {
         let dark = Tokens {
             kind,
-            app_bg: Color32::from_rgb(0x12, 0x12, 0x12),
-            header_bg: Color32::from_rgb(0x1f, 0x1f, 0x1f),
-            panel_bg: Color32::from_rgb(0x23, 0x23, 0x23),
+            app_bg: Color32::from_rgb(0x09, 0x0b, 0x0d),
+            header_bg: Color32::from_rgb(0x0d, 0x12, 0x15),
+            panel_bg: Color32::from_rgb(0x0d, 0x12, 0x15),
             tab_text: Color32::from_rgb(0x9a, 0x9a, 0x9a),
             tab_text_active: Color32::from_rgb(0xe3, 0xe3, 0xe3),
-            focus: Color32::from_rgb(0x2d, 0x8c, 0xeb),
-            accent: Color32::from_rgb(0x2d, 0x8c, 0xeb),
-            accent_hover: Color32::from_rgb(0x4a, 0xa0, 0xf5),
+            focus: Color32::from_rgb(0x00, 0x9b, 0x84),
+            accent: Color32::from_rgb(0x00, 0x81, 0x6f),
+            accent_hover: Color32::from_rgb(0x25, 0xd6, 0xb7),
             text: Color32::from_rgb(0xc8, 0xc8, 0xc8),
             text_dim: Color32::from_rgb(0x9a, 0x9a, 0x9a),
             text_faint: Color32::from_rgb(0x8c, 0x8c, 0x8c),
@@ -150,25 +150,25 @@ impl Tokens {
             icon_active: Color32::from_rgb(0xf0, 0xf0, 0xf0),
             hover: Color32::from_rgb(0x30, 0x30, 0x30),
             pressed: Color32::from_rgb(0x45, 0x45, 0x45),
-            field_bg: Color32::from_rgb(0x17, 0x17, 0x17),
+            field_bg: Color32::from_rgb(0x17, 0x21, 0x25),
             field_border: Color32::from_rgb(0x3a, 0x3a, 0x3a),
             separator: Color32::from_rgb(0x34, 0x34, 0x34),
-            row: Color32::from_rgb(0x23, 0x23, 0x23),
+            row: Color32::from_rgb(0x0d, 0x12, 0x15),
             row_alt: Color32::from_rgb(0x27, 0x27, 0x27),
             row_selected: Color32::from_rgb(0x3a, 0x3a, 0x3a),
-            hot_text: Color32::from_rgb(0x3d, 0x8f, 0xf5),
+            hot_text: Color32::from_rgb(0x25, 0xd6, 0xb7),
             tl_bg: Color32::from_rgb(0x1b, 0x1b, 0x1b),
-            tl_ruler_bg: Color32::from_rgb(0x23, 0x23, 0x23),
+            tl_ruler_bg: Color32::from_rgb(0x0d, 0x12, 0x15),
             tl_ruler_tick: Color32::from_rgb(0x70, 0x70, 0x70),
             tl_ruler_text: Color32::from_rgb(0x9a, 0x9a, 0x9a),
-            cti: Color32::from_rgb(0x2d, 0x8c, 0xeb),
+            cti: Color32::from_rgb(0x00, 0x9b, 0x84),
             work_area: Color32::from_rgb(0x4a, 0x4a, 0x4a),
             cache_green: Color32::from_rgb(0x3c, 0xa6, 0x4c),
             cache_blue: Color32::from_rgb(0x3a, 0x6f, 0xd8),
             keyframe: Color32::from_rgb(0xa8, 0xa8, 0xa8),
-            keyframe_selected: Color32::from_rgb(0x3d, 0x8f, 0xf5),
+            keyframe_selected: Color32::from_rgb(0x25, 0xd6, 0xb7),
             pasteboard: Color32::from_rgb(0x1a, 0x1a, 0x1a),
-            timecode: Color32::from_rgb(0x3d, 0x8f, 0xf5),
+            timecode: Color32::from_rgb(0x25, 0xd6, 0xb7),
             danger: Color32::from_rgb(0xe0, 0x4a, 0x3c),
             warning: Color32::from_rgb(0xe8, 0x9a, 0x2c),
             fx_header: Color32::from_rgb(0x2a, 0x2a, 0x2a),
@@ -195,7 +195,7 @@ impl Tokens {
                 panel_bg: Color32::from_rgb(0x19, 0x19, 0x19),
                 row: Color32::from_rgb(0x19, 0x19, 0x19),
                 row_alt: Color32::from_rgb(0x1d, 0x1d, 0x1d),
-                tl_bg: Color32::from_rgb(0x12, 0x12, 0x12),
+                tl_bg: Color32::from_rgb(0x09, 0x0b, 0x0d),
                 tl_ruler_bg: Color32::from_rgb(0x19, 0x19, 0x19),
                 field_bg: Color32::from_rgb(0x0e, 0x0e, 0x0e),
                 pasteboard: Color32::from_rgb(0x11, 0x11, 0x11),
@@ -947,5 +947,17 @@ mod tests {
         }
         // Leave the operating system's locale behind for whatever runs next.
         install_script_fallbacks(&mut fonts, "system");
+    }
+}
+
+#[cfg(test)]
+mod visualab_brand_tests {
+    use super::*;
+    #[test]
+    fn default_brand_keeps_actions_distinct_from_errors() {
+        let t = Tokens::for_kind(ThemeKind::default());
+        assert_eq!(t.accent, Color32::from_rgb(0, 129, 111));
+        assert!(t.text.r() > 150 && t.panel_bg.r() < 30);
+        assert_ne!(t.danger, t.accent);
     }
 }
