@@ -196,7 +196,7 @@ fn main() -> eframe::Result {
     let notice = launch.notice.take();
     let options = eframe::NativeOptions {
         viewport: egui::ViewportBuilder::default()
-            .with_title("EffectCraft")
+            .with_title("Visualab Effects")
             .with_inner_size(window::DEFAULT_SIZE)
             .with_min_inner_size(window::MIN_SIZE)
             .with_drag_and_drop(true)
@@ -219,7 +219,7 @@ fn main() -> eframe::Result {
     #[cfg(target_os = "macos")]
     let apple_events = &apple_events;
     let result = eframe::run_native(
-        "EffectCraft",
+        "Visualab Effects",
         options,
         Box::new(move |cc| {
             EffectcraftApp::install_ime_reset_hooks(&cc.egui_ctx);
@@ -302,26 +302,30 @@ fn main() -> eframe::Result {
                 rfd::FileDialog::new().add_filter("Media", exts).pick_files().unwrap_or_default().into_iter().map(|p| p.to_string_lossy().to_string()).collect()
             }));
             app.hooks.pick_save = Some(Box::new(|name: &str| {
-                rfd::FileDialog::new().add_filter("EffectCraft Project", &["ecproj"]).set_file_name(name).save_file().map(|p| p.to_string_lossy().to_string())
+                rfd::FileDialog::new()
+                    .add_filter("Visualab Effects Project", &["ecproj"])
+                    .set_file_name(name)
+                    .save_file()
+                    .map(|p| p.to_string_lossy().to_string())
             }));
             // The window closes after a lost graphics device (#591); say why, unless an agent drives
             // the app through the control channel.
             if control_port.is_none() {
                 app.hooks.device_lost = Some(Box::new(|saved: Option<Result<String, String>>| {
                     let saved = match saved {
-                        Some(Ok(path)) => format!("\n\nYour unsaved changes were saved to:\n{path}\n\nReopen EffectCraft to recover them."),
+                        Some(Ok(path)) => format!("\n\nYour unsaved changes were saved to:\n{path}\n\nReopen Visualab Effects to recover them."),
                         Some(Err(e)) => format!("\n\nYour unsaved changes could not be saved ({e})."),
                         None => String::new(),
                     };
                     rfd::MessageDialog::new()
                         .set_level(rfd::MessageLevel::Error)
-                        .set_title("EffectCraft: graphics device lost")
-                        .set_description(format!("The graphics driver stopped responding, so EffectCraft has to close.{saved}"))
+                        .set_title("Visualab Effects: graphics device lost")
+                        .set_description(format!("The graphics driver stopped responding, so Visualab Effects has to close.{saved}"))
                         .show();
                 }));
             }
             app.hooks.pick_open_project = Some(Box::new(|| {
-                rfd::FileDialog::new().add_filter("EffectCraft Project", &["ecproj", "ecprojx"]).pick_file().map(|p| p.to_string_lossy().to_string())
+                rfd::FileDialog::new().add_filter("Visualab Effects Project", &["ecproj", "ecprojx"]).pick_file().map(|p| p.to_string_lossy().to_string())
             }));
             app.hooks.system_theme = appearance::service();
             app.hooks.audio_device = Some(Box::new(audio_out::open));
@@ -405,7 +409,7 @@ fn wgpu_options(backends: Option<eframe::wgpu::Backends>) -> eframe::WgpuConfigu
 /// so memory the compositor frees on the shared device goes back to the driver.
 fn device_descriptor(adapter: eframe::wgpu::Limits) -> eframe::wgpu::DeviceDescriptor<'static> {
     eframe::wgpu::DeviceDescriptor {
-        label: Some("EffectCraft device"),
+        label: Some("Visualab Effects device"),
         required_limits: device_limits(adapter),
         memory_hints: eframe::wgpu::MemoryHints::MemoryUsage,
         ..Default::default()
@@ -424,7 +428,7 @@ fn device_limits(adapter: eframe::wgpu::Limits) -> eframe::wgpu::Limits {
 fn startup_failed(e: &eframe::Error, gl_next: bool) {
     let next = if gl_next { "The next launch will try OpenGL instead. " } else { "" };
     let message = format!(
-        "EffectCraft couldn't start its window: {e}\n\n{next}Updating the graphics driver often helps. If it keeps happening, please report it at https://github.com/storytold/effectcraft/issues with this message."
+        "Visualab Effects couldn't start its window: {e}\n\n{next}Updating the graphics driver often helps. If it keeps happening, please report it at https://github.com/storytold/effectcraft/issues with this message."
     );
     // Standard error and the session log; standard error alone when RUST_LOG turned errors off.
     if log::log_enabled!(log::Level::Error) {
@@ -434,7 +438,7 @@ fn startup_failed(e: &eframe::Error, gl_next: bool) {
     }
     let _ = rfd::MessageDialog::new()
         .set_level(rfd::MessageLevel::Error)
-        .set_title("EffectCraft")
+        .set_title("Visualab Effects")
         .set_description(message)
         .set_buttons(rfd::MessageButtons::Ok)
         .show();
@@ -525,7 +529,7 @@ fn disable_app_nap() {
     {
         use objc2_foundation::{NSActivityOptions, NSProcessInfo, NSString};
         let info = NSProcessInfo::processInfo();
-        let reason = NSString::from_str("EffectCraft control channel");
+        let reason = NSString::from_str("Visualab Effects control channel");
         let opts = NSActivityOptions::UserInitiatedAllowingIdleSystemSleep | NSActivityOptions::LatencyCritical;
         // Leaked on purpose: the activity lasts for the life of the process.
         std::mem::forget(info.beginActivityWithOptions_reason(opts, &reason));
@@ -607,7 +611,7 @@ mod tests {
         let d = super::device_descriptor(big);
         assert!(matches!(d.memory_hints, eframe::wgpu::MemoryHints::MemoryUsage));
         assert_eq!(d.required_limits.max_texture_dimension_2d, 16384);
-        assert_eq!(d.label, Some("EffectCraft device"));
+        assert_eq!(d.label, Some("Visualab Effects device"));
     }
 
     /// A positional .ecprojx is a project file, not an unsupported media import (#528).

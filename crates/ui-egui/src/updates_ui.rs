@@ -84,7 +84,7 @@ pub(crate) fn show(app: &mut EffectcraftApp, ctx: &egui::Context) {
             Status::Checking => (true, None),
             Status::UpToDate => (
                 true,
-                Some(crate::i18n::tr("EffectCraft {version} is currently the newest version available.").replace("{version}", env!("CARGO_PKG_VERSION"))),
+                Some(crate::i18n::tr("Visualab Effects {version} is currently the newest version available.").replace("{version}", env!("CARGO_PKG_VERSION"))),
             ),
             Status::Failed(e) => (true, Some(crate::i18n::tr("Could not check for updates:\n{error}").replace("{error}", e))),
         };
